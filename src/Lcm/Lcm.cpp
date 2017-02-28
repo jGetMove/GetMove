@@ -37,7 +37,7 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
 
     }
 
-    
+
     OccurenceDeriver occ(database);
     maxItem = database.GetMaxItem();
     minItem = database.GetMinItem();
@@ -80,7 +80,7 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
     }
 
 
-    totalItem = database.GetItemset();
+    totalItem = database.GetItemset(); // ensemble des clustersId utilisés dans database
 
     if(cfg.DEBUG)
     {
@@ -134,7 +134,7 @@ void Lcm::RunLcm(OccurenceDeriver &fullOcc, Database &database, vector<vector<in
         transactionList.push_back(i);
     }
 
-    totalItem = database.GetItemset();
+    totalItem = database.GetItemset();// retourne l'ensemble des items dans toutes les transaction de database
     vector<int> freqList;
 
     if(cfg.DEBUG)
@@ -149,7 +149,7 @@ void Lcm::RunLcm(OccurenceDeriver &fullOcc, Database &database, vector<vector<in
     LcmIter(fullOcc, database, itemsets, transactionList, occ, freqList, level2ItemID, level2TimeID);
     rgPatternDetect(fullOcc);
 
-//    myfile<<"//////////////end RunLcm///////////"<<endl;
+    //    myfile<<"//////////////end RunLcm///////////"<<endl;
 }
 
 
@@ -158,7 +158,7 @@ void Lcm::RunLcm(OccurenceDeriver &fullOcc, Database &database, vector<vector<in
 //
 //}
 void Lcm::GenerateItemsets(Database &database,vector<int> &itemsets, vector<int> &itemID, vector<int> &timeID, vector<vector<int> > &generatedItemsets, vector<vector<int> > &generatedtimeID, vector<vector<int> > &generateditemID, int &sizeGenerated) {
-   
+
     // GenerateItemsets is defined for managing the multi-occurrences of an object in different clusters
     // From itemsets and according to the same time for a cluster it will generate a set of itemsets corresponding
     // to the real occurrence, i.e. without generating an itemset at the same time
@@ -359,66 +359,71 @@ void Lcm::LcmIterNew(Database &database, vector<int> &itemsets, vector<int> &tra
     vector<vector<int> > generatedtimeID;
     vector<vector<int> > generateditemID;
     int sizeGenerated=1;
-    GenerateItemsets(database,itemsets, itemID, timeID, generatedItemsets, generatedtimeID, generateditemID, sizeGenerated);
+    GenerateItemsets(database,itemsets, itemID, timeID, generatedItemsets, generatedtimeID, generateditemID, sizeGenerated); // met itemsets (tableau vide) dans generatedItemsets
 
 
     for (unsigned int nbitemset=0; nbitemset < generatedItemsets.size(); nbitemset++){
         vector<int> timeIDTemp;
-        timeIDTemp.push_back(id);
+        timeIDTemp.push_back(id); // ajout dans timeIdtemp l'id du lcm
         vector<int> itemIDTemp;
-        itemIDTemp.push_back(id);
+        itemIDTemp.push_back(id); // ajout dans timeIdtemp l'id du lcm
         vector<int> itemsetsTemp;//for Compo algorithm (Mining Compression Movement Patterns for Moving Objects)
         //Compress item and time into level 2
-        if(cfg.DEBUG) ShowItemsetsInfos(generatedItemsets[nbitemset], occ);
-        PrintItemsetsNew(generatedItemsets[nbitemset], occ, transactionsets, numItems, timeID, level2ItemID, level2TimeID); // print $ itemset
+        if(cfg.DEBUG) ShowItemsetsInfos(generatedItemsets[nbitemset], occ); // affiche itemsets (qui est toujours vide)
+        PrintItemsetsNew(generatedItemsets[nbitemset], occ, transactionsets, numItems, timeID, level2ItemID, level2TimeID); // print $ itemset(qui est toujours vide)
 
         if (cfg.DEBUG){
-            cerr << "content of generatedItemset" << endl;
+            cerr << "content of generatedItemset" << endl; // generatedItemsets[nbitemset].size() = 0 car itemsets est vide
             for (unsigned int i=0 ; i < generatedItemsets[nbitemset].size(); i++){
                        cerr << generatedItemsets[nbitemset][i] << " " << occ.GetNumOcc(generatedItemsets[nbitemset][i]) << endl;
             }
         }
 
 
-        int core_i=CalcurateCoreI(database,generatedItemsets[nbitemset], freqList);
+        int core_i=CalcurateCoreI(database,generatedItemsets[nbitemset], freqList); // ne fait rien
 
 
       //Compute the frequency of each pattern P \cup {i}, i > core_i(P)
       // by Occurence deliver with P and Occ;
 
-        vector<int>::iterator iter = lower_bound(totalItem.begin(), totalItem.end(), core_i);
+        vector<int>::iterator iter = lower_bound(totalItem.begin(), totalItem.end(), core_i); // met l'iterateur à 0
+
         vector<int> freq_i;
-        for (int i = *iter; iter != totalItem.end(); iter++, i = *iter){
-        if ((int)occ.table[i].size() >= min_sup && binary_search(generatedItemsets[nbitemset].begin(), generatedItemsets[nbitemset].end(), i) == false)
-            freq_i.push_back(i);
+
+        for (int i = *iter; iter != totalItem.end(); iter++, i = *iter){ // i = clusterId
+            if ((int)occ.table[i].size() >= min_sup && binary_search(generatedItemsets[nbitemset].begin(), generatedItemsets[nbitemset].end(), i) == false)
+                freq_i.push_back(i);
         }
+        // freq_i est equivalent à totalItem
 
         vector<int> newTransactionList;
         vector<int> q_sets;
         vector<int> newFreqList;
-        for (vector<int>::iterator freq = freq_i.begin(); freq != freq_i.end(); freq++){
+
+        for (vector<int>::iterator freq = freq_i.begin(); freq != freq_i.end(); freq++){ // pour chauqe ClusterID
             newTransactionList.clear();
+
             if (PpcTest(database, generatedItemsets[nbitemset], transactionList, *freq, newTransactionList)){
+              // newTransactionList conteint mainteannt l'ensemble des transaction
+              //return false quand l'itemset ne contient pas freq (l'item actuel) ET que newTransactionList contienne l'item actuel
                 q_sets.clear();
 
                 MakeClosure(database, newTransactionList, q_sets, generatedItemsets[nbitemset], *freq);
-            if (max_pat == 0 || (int)q_sets.size() <= max_pat){
-                newTransactionList.clear();
-                UpdateTransactionList(database, transactionList, q_sets, *freq, newTransactionList);
-                UpdateOccurenceDeriver(database, newTransactionList, occ);
-                newFreqList.clear();
-                UpdateFreqList(database, transactionList, q_sets, freqList, *freq, newFreqList);
 
-                LcmIterNew(database, q_sets, newTransactionList, occ, newFreqList, transactionsets, numItems, itemID, timeID, level2ItemID, level2TimeID);
+                if (max_pat == 0 || (int)q_sets.size() <= max_pat){
+                    newTransactionList.clear();
+                    UpdateTransactionList(database, transactionList, q_sets, *freq, newTransactionList);
+                    UpdateOccurenceDeriver(database, newTransactionList, occ);
+                    newFreqList.clear();
+                    UpdateFreqList(database, transactionList, q_sets, freqList, *freq, newFreqList);
+
+                    LcmIterNew(database, q_sets, newTransactionList, occ, newFreqList, transactionsets, numItems, itemID, timeID, level2ItemID, level2TimeID);
+                }
             }
-        }
         }
     }// nb of itemsets in generatedItemsets
 
 }
-
-
-
 
 
 void Lcm::ShowItemsetsInfos(vector<int> &itemsets, OccurenceDeriver &occ)
@@ -461,10 +466,10 @@ void Lcm::LcmIter(OccurenceDeriver &fullOcc, Database &database, vector<int> &it
         cerr << "taille itemset apres coreI" << itemsets.size() << " freqList.size() << " << freqList.size()<< endl;
     }
 
- 
+
     //compute blocks of itemsets.
     vector<int> blocks;
- 
+
 
     for(unsigned int i = 0; i < itemsets.size(); i++)
     {
@@ -491,7 +496,7 @@ void Lcm::LcmIter(OccurenceDeriver &fullOcc, Database &database, vector<int> &it
     vector<int> q_sets;
     vector<int> newFreqList;
     int nbpassage=0;
-    
+
     for (vector<int>::iterator freq = freq_i.begin(); freq != freq_i.end(); freq++)
     {
         if(cfg.DEBUG)
@@ -532,7 +537,7 @@ void Lcm::LcmIter(OccurenceDeriver &fullOcc, Database &database, vector<int> &it
 
             MakeClosure(database, newTransactionList, q_sets, itemsets, *freq);
 
- 
+
 
             if ((max_pat == 0 || (int)q_sets.size() <= max_pat) /*&& lengthItemsets > min_t*/)
                 //also detect min_t
@@ -702,7 +707,7 @@ inline void Lcm::PrintItemsetsNew(const vector<int> &itemsets, const OccurenceDe
             {
                 cerr<<"\t \t dans la boucle car itemsets.size() > min_t"<<endl;
             }
- 
+
 
             //Compress item and time into level 2
             vector<int> timeIDTemp;
@@ -720,7 +725,7 @@ inline void Lcm::PrintItemsetsNew(const vector<int> &itemsets, const OccurenceDe
                 cerr << endl;
             }
 
-//            cerr<<" timeID : " <<id<<endl;
+            //            cerr<<" timeID : " <<id<<endl;
 
             vector<int> itemsetsTemp;//for Compo algorithm (Mining Compression Movement Patterns for Moving Objects)
             //Compress item and time into level 2
@@ -837,7 +842,7 @@ inline void Lcm::PrintItemsets(OccurenceDeriver &fullOcc, const vector<int> &ite
                 occ3.Print(cerr);
             }
 
-        
+
             vector<int> table = occ.GetTable(itemsets[itemsets.size() - 1]);
             vector<vector<int> > alltables = occ.GetAllTable();
 
@@ -1020,10 +1025,6 @@ inline void Lcm::PrintItemsets(OccurenceDeriver &fullOcc, const vector<int> &ite
 
 }
 
-
-
-
-
 /*****************************************************************************
  * calculrate core_i
  *****************************************************************************/
@@ -1036,7 +1037,8 @@ inline int Lcm::CalcurateCoreI(const Database &database,const vector<int> &items
     }
     int nb=database.GetNumberOfTransaction();
     vector <int> tempo;
-    for (int i=0; i < nb ; i++)
+
+    for (int i=0; i < nb ; i++) // affiche si l'ensemble des itemsets contenus dans la database n'est pas itemset
     {
 
         tempo=(database.GetTransaction(i).itemsets);
@@ -1069,7 +1071,7 @@ inline int Lcm::CalcurateCoreI(const Database &database,const vector<int> &items
 
     if (itemsets.size() > 0)
     {
-        int current = freqList[freqList.size() - 1];// car commence � z�ro
+        int current = freqList[freqList.size() - 1];// car commence � z�ro
 
         if(cfg.DEBUG)
         {
@@ -1119,7 +1121,7 @@ inline bool Lcm::PpcTest(const Database &database, vector<int> &itemsets, vector
     {
         cerr << "Test ppc : item " << item << endl;
     }
-    CalcTransactionList(database, transactionList, item, newTransactionList);
+    CalcTransactionList(database, transactionList, item, newTransactionList); // mets dans newTransactionList l'ensemble des transactions contenant item (le custer id)
 
     // check j s.t j < i, j \notin P(i-1) is included in every transaction of T(P \cup {i})
     for (vector<int>::iterator j = totalItem.begin(); *j < item; j++)
@@ -1127,7 +1129,7 @@ inline bool Lcm::PpcTest(const Database &database, vector<int> &itemsets, vector
         if (binary_search(itemsets.begin(), itemsets.end(), *j) == false &&
                 CheckItemInclusion(database, newTransactionList, *j) == true)
         {
-            return false;
+            return false; // return false quand l'itemset ne contient pas l'item actuel ET que newTransactionList contienne l'item actuel
         }
     }
     return true;
@@ -1181,10 +1183,10 @@ inline void Lcm::CalcTransactionList(const Database &database, const vector<int>
 {
 
     for (int list = 0; list < (int)transactionList.size(); list++)
-    {
-        const Transaction &transaction = database.database[transactionList[list]];
-        if (binary_search(transaction.itemsets.begin(), transaction.itemsets.end(), item) == true)
-            newTransactionList.push_back(transactionList[list]);
+    { // pour chaque transaction
+        const Transaction &transaction = database.database[transactionList[list]]; // on récupère la transaction
+        if (binary_search(transaction.itemsets.begin(), transaction.itemsets.end(), item) == true) // on verifie si l'id est dans l'itemset de la transaction
+            newTransactionList.push_back(transactionList[list]); // is oui, on l'ajouter à la nouvelle transactionlist
     }
 }
 
@@ -1208,6 +1210,8 @@ inline void Lcm::UpdateOccurenceDeriver(const Database &database, const vector<i
 
 /****************************************************************
 * read item time index from filename
+* mets dans timeindex[] le timeid et dans item_temp[] l'objectID
+* numTimes = item_temp.size()
 *****************************************************************/
 void Lcm::ReadItemTindexFile(const string &filename)
 {
@@ -1423,7 +1427,7 @@ void Lcm::GroupPatternDetect(OccurenceDeriver &fullOcc, vector<int> &timesets, v
 
     vector<int> correctObjectsets = fullOcc.GetTable(ItemSets[0]);
 
- 
+
 
     for(unsigned int i = 0; i < timesets.size(); i++)
     {
@@ -1846,8 +1850,8 @@ void Lcm::fCloseSwarmDetect(OccurenceDeriver &fullOcc, vector<int> &timesets, ve
 
     //int numOverlapTimePoint = 0;
 
-    
-    
+
+
     firstTime = timesets[0];
     firstIndex = 0;
     lastTime = firstTime;
@@ -2080,17 +2084,3 @@ double Lcm::Degree(int &gap, int type)
         return 0.0;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

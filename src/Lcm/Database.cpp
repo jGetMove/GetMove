@@ -174,15 +174,15 @@ void Database::ReadFile(const string &filename, int &numObject) {
     transaction.id = total_id++; // on nomme la transaction
     database.push_back(transaction); // et on l'ajoute à la base.
 
-//     cout << "database transactions :" << endl;
-//    for (int j = 0; j < transaction.itemsets.size(); j++)
-//        {
-//            cout << transaction.itemsets[j] <<" ";
-//        }
+  //     cout << "database transactions :" << endl;
+  //    for (int j = 0; j < transaction.itemsets.size(); j++)
+  //        {
+  //            cout << transaction.itemsets[j] <<" ";
+  //        }
     objectTemp++; // on incremente le nombre d'objets
   }
     numObject=objectTemp; // numobject prends le total du nombre d'objets
-//  cout << "\t Object temps = " << objectTemp << endl;
+    //  cout << "\t Object temps = " << objectTemp << endl;
   FindMaxAndMinItem(); // Associe à max_item et min_item le cluster le plus haut et le plus bas.
 }
 
@@ -203,7 +203,7 @@ void Database::ReadFile(const string &filename, const string &Object_filename) {
     istrstream istrs ((char *)line.c_str());
     while (istrs >> item) objectList.push_back(item);
   }
-  //////////////////////////////////////////
+    //////////////////////////////////////////
 
   ifstream is(filename.c_str());
   while (getline (is, line)) {
@@ -263,19 +263,23 @@ void Database::FindMaxAndMinItem() {
 
 /*******************************************************************
 * GetItemset()
+* renvoie tous les clusters contenus dans database (dans toutes les transaction)
 ********************************************************************/
 vector<int> Database::GetItemset() {
-    set<int> totalItem;
+    set<int> totalItem; // liste chainée
+
     for (int i = 0; i < (int)database.size(); i++) {
-      Transaction &transaction = database[i];
-      vector<int> &itemsets = transaction.itemsets;
-      for (int j = 0; j < (int)itemsets.size(); j++) {
-          totalItem.insert(itemsets[j]);
-      }
+        Transaction &transaction = database[i];
+        vector<int> &itemsets = transaction.itemsets;
+
+        for (int j = 0; j < (int)itemsets.size(); j++) {
+            totalItem.insert(itemsets[j]);
+        }
     }
     vector<int> allItem;
+
     for (set<int>::iterator iter = totalItem.begin(); iter != totalItem.end(); iter++) {
-      allItem.push_back(*iter);
+        allItem.push_back(*iter);
     }
     return allItem;
 }
@@ -382,11 +386,6 @@ void Database::PrintBitmap(ostream &out) {
 unsigned short Database::GetBitmap(int i, int item) {
   return bitmap[i][item];
 }
-
-
-
-
-
 
 ////////////////for Gene Visualization///////////////////////////////
 /****************************************************************

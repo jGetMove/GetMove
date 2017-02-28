@@ -140,15 +140,17 @@ int main(int argc, char **argv)
 
     ///////////////////////////////////////
     Lcm lcmTimeIndex(cout, min_sup, 0, 0);
+    // initialise avec cout et min_sup, max_pat (maximum_itemset_size) et min_t (minimum_itemset_size)
 
     lcmTimeIndex.ReadItemTindexFile(filenames[1]);
 
-
+    // initialisation des block de seconde dimension
     vector<vector<int> > numIDlevel2;
     numIDlevel2.clear();
     vector<vector<int> > timeIDlevel2;
     timeIDlevel2.clear();
-    start = clock();
+
+    start = clock(); // début de l'algo
     long int loadFileTime=0; //compute load file time
 
 
@@ -173,7 +175,7 @@ int main(int argc, char **argv)
             cerr <<" lcm object construction" << endl;
         }
 
-        lcm.id = i-1;
+        lcm.id = i-1; // lcm.id = 0 car un seul block
         //start = clock();
         //lcm.ReadItemTindexFile(filenames[1]);
 
