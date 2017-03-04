@@ -1,16 +1,13 @@
-#include "../include/Config.h"
-#include <string>
+#include "../../include/Config.h"
 
-    bool Config::DEBUG=true;
-    bool Config::FULLDEBUG=true;
-    std::string Config::defaultFile="mini.dat";
+bool Config::DEBUG = true;
 
-Config::Config(){
+Config::Config() {
 
 
 }
 
-Config::~Config(){
+Config::~Config() {
 
 }
 

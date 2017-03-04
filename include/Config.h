@@ -9,16 +9,13 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
-#include <string>
-
-class Config{
-    public:
+class Config {
+public:
 
     static bool DEBUG;
-    static bool FULLDEBUG;
-    static std::string defaultFile;
 
     Config();
+
     ~Config();
 
 };
