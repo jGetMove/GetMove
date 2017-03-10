@@ -35,12 +35,14 @@ le fichier `mini.dat`
 - Le dernier objet est dans le cluster 0 puis 2 puis 3
 - Le séparateur est un espace ou une tabulation.
 
-nomtimendex.dat
+`nomtimendex.dat`
+
 Attention le fichier doit avoir le même nom+timeindex.dat 
-Par exemple pour le fichier mini.dat, le fichier associé est minitimeindex.dat
+Par exemple pour le fichier `mini.dat`, le fichier associé est `minitimeindex.dat`
+
 Ce fichier permet de connaitre pour un temps donné le/les cluster associé.
 Les séparateurs sont des tabulations.
-Par exemple le fichier minitimeindex.dat associé au précédent exemple est :
+Par exemple le fichier `minitimeindex.dat` associé au précédent exemple est :
 
  	1      0
   	2      1
@@ -135,17 +137,18 @@ va générer dans le repertoire files le fichier `files/minisortie_1mint0minw0Ma
 
 GENJSON
 -------
-genjson est un générateur de fichier Json à partir d'une sortie de lcm
+`genjson` est un générateur de fichier Json à partir d'une sortie de lcm
 
 Pour le compiler : `make genjson`
 
 Pour l'executer : `./genjson files/fichiersortielcm files/donnees.dat`
 
-où `files/fichiersortielcm` est la sortie du fichier généré par `lcm` (ou `getmax`) et `files/donnees.dat` est le fichier contenant les objets 
-sur lequel lcm a été appliqué. Attention dans le répertoire files, il faut impérativement avoir associé le fichier des temps pour les 
-clusters : `files/donneestimeindex.dat`
+où `files/fichiersortielcm` est la sortie du fichier généré par `lcm` (ou `getmax`) et `files/donnees.dat` est le fichier contenant les objets sur lequel lcm a été appliqué. 
+
+Attention dans le répertoire files, il faut impérativement avoir associé le fichier des temps pour les clusters : `files/donneestimeindex.dat`
 
 La sortie générée est un fichier `files/fichiersortielcm.json`.
+
 exemple :
 ```json
 {
@@ -162,6 +165,7 @@ exemple :
 ```
 
 Exemple : `./genjson files/minisortie_1mint0minw0.dat files/mini.dat`
+
 generera le fichier : `files/minisortie_1mint0minw0.json`
 
 
