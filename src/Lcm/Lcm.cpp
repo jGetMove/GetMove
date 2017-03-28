@@ -1,4 +1,4 @@
-#include "../include/Lcm.h"
+#include "../../include/Lcm.h"
 #include <sstream>
 #include <stdio.h>
 #include <string.h>
@@ -45,7 +45,7 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
         //transactionsets
         cerr<<"Transactionset :"<<endl;
         for(int i =0;i<transactionsets.size();i++){
-            cerr<<"--Transaction n°"<<i<<"--"<<endl;
+            cerr<<"--Transaction nï¿½"<<i<<"--"<<endl;
             transactionsets[i].print();
         }
         //numItems
@@ -140,7 +140,7 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
         //transactionsets
         cerr<<"Transactionset :"<<endl;
         for(int i =0;i<transactionsets.size();i++){
-            cerr<<"--Transaction n°"<<i<<"--"<<endl;
+            cerr<<"--Transaction nï¿½"<<i<<"--"<<endl;
             transactionsets[i].print();
         }
         //numItems
@@ -433,7 +433,7 @@ void Lcm::LcmIterNew(Database &database, vector<int> &itemsets, vector<int> &tra
         //transactionsets
         cerr<<"Transactionset :"<<endl;
         for(int i =0;i<transactionsets.size();i++){
-            cerr<<"--Transaction n°"<<i<<"--"<<endl;
+            cerr<<"--Transaction nï¿½"<<i<<"--"<<endl;
             transactionsets[i].print();
         }
         //numItems
