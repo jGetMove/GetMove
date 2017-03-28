@@ -34,7 +34,34 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
     if(cfg.DEBUG)
     {
         cerr<<"//////////////RunLcmNew///////////"<<endl;
+    }
 
+    if(cfg.DEBUG){
+        cerr<<"////////////////////////////////////////////////////////////// DEBUT RUN LCM NEW"<<endl;
+        //print database
+        cerr<<"database :"<<endl;
+        database.Print(cerr);
+
+        //transactionsets
+        cerr<<"Transactionset :"<<endl;
+        for(int i =0;i<transactionsets.size();i++){
+            cerr<<"--Transaction n°"<<i<<"--"<<endl;
+            transactionsets[i].print();
+        }
+        //numItems
+        cerr<<"numItems :"<<numItems<<endl;
+
+        //itemID
+        cerr<<"itemID :"<<endl;
+        for(int i = 0; i<itemID.size();i++){
+            cerr<<itemID[i]<<endl;
+        }
+
+        //timeID
+        cerr<<"timeID :"<<endl;
+        for(int i = 0; i<timeID.size();i++){
+            cerr<<timeID[i]<<endl;
+        }
     }
 
 
@@ -85,6 +112,9 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
     if(cfg.DEBUG)
     {
         cerr << "\t taille des itemsets " << totalItem.size() << endl;
+        for(int i = 0; i<totalItem.size();i++){
+            cerr<<totalItem[i]<<endl;
+        }
         cerr <<"\t  la on lance LCMIterNew : "  << endl;
     }
 
@@ -101,7 +131,33 @@ void Lcm::RunLcmNew(Database &database, vector<Transaction> &transactionsets, in
         occ.Print(t);
         cerr << "itemsets RunLcmNew size : "<< itemsets.size()<<endl;
         ShowItemsetsInfos(itemsets,occ);
+
         cerr<<"//////////////end RunLcmNew///////////"<<endl;
+    }
+
+    if(cfg.DEBUG){
+        cerr<<"//////////////////////////////////////////////////////////////Fin de RunLcmNew"<<endl;
+        //transactionsets
+        cerr<<"Transactionset :"<<endl;
+        for(int i =0;i<transactionsets.size();i++){
+            cerr<<"--Transaction n°"<<i<<"--"<<endl;
+            transactionsets[i].print();
+        }
+        //numItems
+        cerr<<"numItems :"<<numItems<<endl;
+        /*
+        //itemID
+        cerr<<"itemID :"<<endl;
+        for(int i = 0; i<itemID.size();i++){
+            cerr<<itemID[i]<<endl;
+        }
+
+        //timeID
+        cerr<<"timeID :"<<endl;
+        for(int i = 0; i<timeID.size();i++){
+            cerr<<timeID[i]<<endl;
+        }
+        */
     }
 }
 
@@ -140,6 +196,10 @@ void Lcm::RunLcm(OccurenceDeriver &fullOcc, Database &database, vector<vector<in
     if(cfg.DEBUG)
     {
         cerr << "\t taille des itemsets " << totalItem.size() << endl;
+        for(int i = 0; i<totalItem.size();i++){
+            cerr<<totalItem[i]<<endl;
+        }
+        cerr<<"freqlist"<<endl;
         for (unsigned int j=0; j < freqList.size(); j++)
         {
             cerr << freqList[j];
@@ -259,6 +319,7 @@ void Lcm::GenerateItemsets(Database &database,vector<int> &itemsets, vector<int>
     sizeGenerated=1;
     for (unsigned int k = 0; k < PosDates.size(); k++) {
         sizeGenerated*=PosDates[k].size();
+        cerr<<sizeGenerated<<endl;
     }
 
 
@@ -353,7 +414,44 @@ void Lcm::GenerateItemsets(Database &database,vector<int> &itemsets, vector<int>
  *************************************************************************/
 void Lcm::LcmIterNew(Database &database, vector<int> &itemsets, vector<int> &transactionList, OccurenceDeriver &occ, vector<int> &freqList, vector<Transaction> &transactionsets, int &numItems, vector<int> &itemID, vector<int> &timeID, vector<vector<int> > &level2ItemID, vector<vector<int> > &level2TimeID)
 {
-    if (cfg.DEBUG) cerr<<" LcmIterNew method"<<endl;
+    if (cfg.DEBUG) cerr<<"LcmIterNew method"<<endl;
+    if(cfg.DEBUG){
+        cerr<<"//////////////////////////////////////////////////////////////  LcmIterNew method"<<endl;
+
+        //itemsets
+        cerr<<"itemsets :"<<endl;
+        for(int i = 0; i<itemsets.size();i++){
+            cerr<<itemsets[i]<<endl;
+        }
+
+        //trnasactionList
+        cerr<<"TransactionList :"<<endl;
+        for(int i = 0; i<transactionList.size();i++){
+            cerr<<transactionList[i]<<endl;
+        }
+
+        //transactionsets
+        cerr<<"Transactionset :"<<endl;
+        for(int i =0;i<transactionsets.size();i++){
+            cerr<<"--Transaction n°"<<i<<"--"<<endl;
+            transactionsets[i].print();
+        }
+        //numItems
+        cerr<<"numItems :"<<numItems<<endl;
+        /*
+        //itemID
+        cerr<<"itemID :"<<endl;
+        for(int i = 0; i<itemID.size();i++){
+            cerr<<itemID[i]<<endl;
+        }
+
+        //timeID
+        cerr<<"timeID :"<<endl;
+        for(int i = 0; i<timeID.size();i++){
+            cerr<<timeID[i]<<endl;
+        }
+        */
+    }
 
     vector<vector<int> > generatedItemsets;
     vector<vector<int> > generatedtimeID;
@@ -361,6 +459,39 @@ void Lcm::LcmIterNew(Database &database, vector<int> &itemsets, vector<int> &tra
     int sizeGenerated=1;
     GenerateItemsets(database,itemsets, itemID, timeID, generatedItemsets, generatedtimeID, generateditemID, sizeGenerated); // met itemsets (tableau vide) dans generatedItemsets
 
+    if(cfg.DEBUG_PERSO){
+        cerr<<"generatedItemsets : [";
+    
+        for(int i = 0 ; i< generatedItemsets.size();i++){
+            cerr<<"[";
+            for(int j=0; j<generatedItemsets[i].size();j++){
+                cerr<<generatedItemsets[i][j]<<",";    
+            }
+            cerr<<"]";
+        }
+        cerr<<"]\n";
+
+        cerr<<"generateditemID : [";
+        for(int i = 0 ; i< generateditemID.size();i++){
+            cerr<<"[";
+            for(int j=0; j<generateditemID[i].size();j++){
+                cerr<<generateditemID[i][j]<<",";    
+            }
+            cerr<<"]";
+        }
+        cerr<<"]\n";
+        cerr<<"generatedtimeID : [";
+
+        for(int i = 0 ; i< generatedtimeID.size();i++){
+            cerr<<"[";
+            for(int j=0; j<generatedtimeID[i].size();j++){
+                cerr<<generatedtimeID[i][j]<<",";    
+            }
+            cerr<<"]";
+        }
+        cerr<<"]\n";
+        cerr<<"sizeGenerated : "<<sizeGenerated<<endl;
+    }
 
     for (unsigned int nbitemset=0; nbitemset < generatedItemsets.size(); nbitemset++){
         vector<int> timeIDTemp;
@@ -381,16 +512,33 @@ void Lcm::LcmIterNew(Database &database, vector<int> &itemsets, vector<int> &tra
 
 
         int core_i=CalcurateCoreI(database,generatedItemsets[nbitemset], freqList); // ne fait rien
-
+        if(cfg.DEBUG_PERSO){
+            cerr<<"core_i : "<<core_i<<endl;
+        }
 
       //Compute the frequency of each pattern P \cup {i}, i > core_i(P)
       // by Occurence deliver with P and Occ;
+        if(cfg.DEBUG){
+            cerr<<"print totalItem"<<endl;
+            for(int i = 0; i<totalItem.size();i++){
+                cerr<<totalItem[i]<<endl;
+            }
+
+
+        }
+
 
         vector<int>::iterator iter = lower_bound(totalItem.begin(), totalItem.end(), core_i); // met l'iterateur Ã  0
 
         vector<int> freq_i;
 
         for (int i = *iter; iter != totalItem.end(); iter++, i = *iter){ // i = clusterId
+            if(cfg.DEBUG){
+                cerr<<"occ.table[" << i <<"]"<<endl;
+                for(int j = 0; j<occ.table[i].size();j++){
+                    cerr<<occ.table[i][j]<<endl;
+                }    
+            }
             if ((int)occ.table[i].size() >= min_sup && binary_search(generatedItemsets[nbitemset].begin(), generatedItemsets[nbitemset].end(), i) == false)
                 freq_i.push_back(i);
         }
@@ -407,8 +555,35 @@ void Lcm::LcmIterNew(Database &database, vector<int> &itemsets, vector<int> &tra
               // newTransactionList conteint mainteannt l'ensemble des transaction
               //return false quand l'itemset ne contient pas freq (l'item actuel) ET que newTransactionList contienne l'item actuel
                 q_sets.clear();
+                if(cfg.DEBUG_PERSO){
+                    cerr<<"------------------------parametre de MakeClosure-----------------------------"<<endl;
+                    cerr<<"newTransactionList : [";
+                    for(int i = 0; i<newTransactionList.size();i++){
+                        cerr<<newTransactionList[i]<<",";
+                    }
+                    cerr<<"]\n";
+                    cerr<<"qSets : [";
+                    for(int i = 0; i<q_sets.size();i++){
+                        cerr<<q_sets[i]<<",";
+                    }
+                    cerr<<"]\n";
+                    cerr<<"generatedItemsets[nbitemset] : [";
+                    for(int i = 0; i<generatedItemsets[nbitemset].size();i++){
+                        cerr<<generatedItemsets[nbitemset][i]<<",";
+                    }
+                    cerr<<"]\n";
 
+                    cerr<<"freq : "<<*freq<<"\n--------------------------------------------\n";
+
+                }
                 MakeClosure(database, newTransactionList, q_sets, generatedItemsets[nbitemset], *freq);
+                if(cfg.DEBUG_PERSO){
+                    cerr<<"qSets : [";
+                    for(int i = 0; i<q_sets.size();i++){
+                        cerr<<q_sets[i]<<",";
+                    }
+                    cerr<<"]\n\n\n";
+                }
 
                 if (max_pat == 0 || (int)q_sets.size() <= max_pat){
                     newTransactionList.clear();
@@ -1205,6 +1380,18 @@ inline void Lcm::UpdateOccurenceDeriver(const Database &database, const vector<i
             occurence.table[itemsets[j]].push_back(transactionList[i]);
         }
     }
+    if(cfg.DEBUG){
+        cerr<<"Print de occurence table"<<endl;
+        for(int i = 0; i<occurence.table.size();i++){
+            cerr<<"occurence.table["<<i<<"] = {";
+            for(int j = 0; j<occurence.table[i].size();j++){
+                cerr<<occurence.table[i][j]<<",";
+            }
+            cerr<<"}\n";
+        }
+    }
+
+
 }
 
 

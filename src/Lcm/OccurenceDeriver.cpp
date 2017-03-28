@@ -43,12 +43,6 @@ void OccurenceDeriver::Clear() {
 *******************************************************************************/
 void OccurenceDeriver::Print(ostream &out) {
 
-  for (unsigned int i = 0; i < table.size(); i++) {
-
-    for (unsigned int j = 0; j < table[i].size(); j++) {
-
-    }
-  }
 }
 
 /********************************************************************************

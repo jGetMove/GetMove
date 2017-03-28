@@ -13,7 +13,7 @@
 
 class Config{
     public:
-
+    static bool DEBUG_PERSO;
     static bool DEBUG;
     static bool FULLDEBUG;
     static std::string defaultFile;

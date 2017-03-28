@@ -51,7 +51,7 @@ objects: 0 1
 time: 1 2 3 
 ------------
 Summary:
-RuningTime: 0.00668
+RuningTime: 0.005754
 NoItemsets: 2
 NoCS: 2
 NofCS: 1

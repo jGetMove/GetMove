@@ -46,6 +46,10 @@ int main(int argc, char **argv)
         cerr.rdbuf( errorFile.rdbuf() );
     }
 
+    if(cfg.DEBUG_PERSO){
+        cerr.rdbuf (errorFile.rdbuf());
+    }
+
     long int start, end;
     double cpu_time_used;
 

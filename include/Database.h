@@ -26,6 +26,19 @@ struct Transaction {
     label = 0;
     itemsets.clear();
   }
+
+  void print(){
+    cerr<<"id :"<<id<<endl;
+    cerr<<"itemsets :"<<endl;
+    for(int i = 0; i<itemsets.size();i++){
+      cerr<<itemsets[i]<<endl;
+    }
+    cerr<<"prefix :"<<endl;
+    for (set<int>::iterator iter = prefix.begin(); iter != prefix.end(); iter++) {
+        cerr<<*iter<<endl;
+    }
+    cerr<<"label :"<<label<<endl;
+  }
 };
 
 class Database {
