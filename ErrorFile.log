@@ -5,11 +5,11 @@
 	OuputFile: test/minisortie_1mint0minw0.dat
 
 	Number of objects: 2
-	Maxitem: 2
+	Maxitem: 3
 	MinItem: 0
 	Database Content:
 		0 C0 C1 C2 
-		1 C0 C1 
+		1 C0 C2 C3 
 
 construction d'un objet avec comme parametre cerr et minsup =1
 	 **** LECTURE FICHIER TIME_INDEX pour LCM ****
@@ -18,13 +18,14 @@ Time ID ----- Object ID
 1 ----- 0
 2 ----- 1
 3 ----- 2
+4 ----- 3
 Running lcm
 construction d'un objet avec comme parametre cerr et minsup =1
  lcm object construction
-GetMaxItem in DB = 2
+GetMaxItem in DB = 3
 Running RunLcmNew ...
 //////////////RunLcmNew///////////
-	  item max : 2
+	  item max : 3
 	 item min : 0
 	  nb de transactions : 2
 	 transactionlist : 0 1 
@@ -32,7 +33,7 @@ Running RunLcmNew ...
 	 transactionsets[0].itemsets.size ()0
 	 transactionsets[1].itemsets.size ()0
 
-	 taille des itemsets 3
+	 taille des itemsets 4
 	  la on lance LCMIterNew : 
  LcmIterNew method
 GenerateItemsets method
@@ -55,35 +56,34 @@ generatedtimeID push_back listofDates
 generateditemID push_back itemID
 No multi-clusters: value of generatedItemsets (1 itemset)
 0 - 1
-1 - 2
+2 - 3
 ------------
  itemset : 0 objects : 0 1 
- itemset : 1 objects : 0 1 
+ itemset : 2 objects : 0 1 
 
 ------------
  itemset : 0 objects : 0 1 
- itemset : 1 objects : 0 1 
+ itemset : 2 objects : 0 1 
 
 //////////////PrintItemsetsNew///////////
 	 	 dans la boucle car itemsets.size() > min_t
  	 **** (PrintItemsetsNew)itemset : 0itemsets.size ()2
-01
+02
  itemset : 0 timeID : 1
- itemset : 1 timeID : 2
+ itemset : 2 timeID : 3
 	 table.size 2
 	 mise a jour tableau second niveau avec numItems = 0
 0 1 
 CONTENU DE LEVEL2ITEMID
-001
+002
 CONTENU DE LEVEL2TIMEID
-012
+013
 //////////////end PrintItemsetsNew///////////
 content of generatedItemset
 0 2
-1 2
+2 2
 In CalcurateCoreI - managing itemsets: 
-ATTENTION LA TRANSACTION EXISTE DEJA IL NE FAUT PAS L'INSERER A NOUVEAU
-01
+02
 22
 Itemsets.size 2
 freqList.size 2
@@ -93,12 +93,10 @@ current 2  i  1  freqList[1] = 2
 current 2  i  0  freqList[0] = 2
 2
 on sort de la boucle
-Test ppc : item 2
+Test ppc : item 1
 *********gsub : 0
 **********freqList : 2
 *********gsub : 1
-**********freqList : 2
-*********gsub : 2
  LcmIterNew method
 GenerateItemsets method
 Here an object does not belong to multi-clusters. It should have only one element
@@ -135,10 +133,10 @@ No multi-clusters: value of generatedItemsets (1 itemset)
 	 mise a jour tableau second niveau avec numItems = 1
 0 
 CONTENU DE LEVEL2ITEMID
-001
+002
 0012
 CONTENU DE LEVEL2TIMEID
-012
+013
 0123
 //////////////end PrintItemsetsNew///////////
 content of generatedItemset
@@ -148,6 +146,73 @@ content of generatedItemset
 In CalcurateCoreI - managing itemsets: 
 ATTENTION LA TRANSACTION EXISTE DEJA IL NE FAUT PAS L'INSERER A NOUVEAU
 012
+211
+Itemsets.size 3
+freqList.size 3
+current: 1freqList.size 3
+current 1  i  2  freqList[2] = 1
+1
+current 1  i  1  freqList[1] = 1
+1
+current 1  i  0  freqList[0] = 2
+2
+Test ppc : item 3
+*********gsub : 0
+**********freqList : 2
+*********gsub : 2
+**********freqList : 2
+*********gsub : 3
+ LcmIterNew method
+GenerateItemsets method
+Here an object does not belong to multi-clusters. It should have only one element
+generatedItemsets push_back itemsets
+generatedtimeID push_back listofDates
+generateditemID push_back itemID
+No multi-clusters: value of generatedItemsets (1 itemset)
+0 - 1
+2 - 3
+3 - 4
+------------
+ itemset : 0 objects : 1 
+ itemset : 2 objects : 1 
+ itemset : 3 objects : 1 
+
+------------
+ itemset : 0 objects : 1 
+ itemset : 2 objects : 1 
+ itemset : 3 objects : 1 
+
+------------
+ itemset : 0 objects : 1 
+ itemset : 2 objects : 1 
+ itemset : 3 objects : 1 
+
+//////////////PrintItemsetsNew///////////
+	 	 dans la boucle car itemsets.size() > min_t
+ 	 **** (PrintItemsetsNew)itemset : 0itemsets.size ()3
+023
+ itemset : 0 timeID : 1
+ itemset : 2 timeID : 3
+ itemset : 3 timeID : 4
+	 table.size 1
+	 mise a jour tableau second niveau avec numItems = 2
+1 
+CONTENU DE LEVEL2ITEMID
+002
+0012
+0023
+CONTENU DE LEVEL2TIMEID
+013
+0123
+0134
+//////////////end PrintItemsetsNew///////////
+content of generatedItemset
+0 1
+2 1
+3 1
+In CalcurateCoreI - managing itemsets: 
+ATTENTION LA TRANSACTION EXISTE DEJA IL NE FAUT PAS L'INSERER A NOUVEAU
+023
 221
 Itemsets.size 3
 freqList.size 3
@@ -158,123 +223,6 @@ current 1  i  1  freqList[1] = 2
 2
 Test ppc : item 1
 Test ppc : item 2
+Test ppc : item 3
 itemsets RunLcmNew size : 0
 //////////////end RunLcmNew///////////
-DB fullDB: 
-0 0 1 2 
-1 0 1 
-
-Content of Database2: 
-0 0 1 
-1 0 
-
-construction d'un objet avec comme parametre cerr et minsup =1
-----------------------------------------
-creation du fichier de sortie
-//////////////RunLcm///////////
-	  item max : 1
-	 item min : 0
-	  nb de transactions : 2
-	 taille des itemsets 2
-//////////////LcmIter///////////
-
-
-In CalcurateCoreI - managing itemsets: 
-
-
-Itemsets.size 0
-freqList.size 0
-taille itemset apres coreI0 freqList.size() << 0
-###########################APPEL ITERATEUR = 1
-BlockOfItem 0
-LcmIter original transactionList : 0 1 
-Test ppc : item 0
-LcmIter new transactionList : 0 1 
-****************Attention ici appel recursif de LCMIter
-****************Normalement ici il a mis a jour newTransactionList et appel update
-****************Normalement ici il a mis a jour occ
-//////////////LcmIter///////////
-
-
-In CalcurateCoreI - managing itemsets: 
-ATTENTION LA TRANSACTION EXISTE DEJA IL NE FAUT PAS L'INSERER A NOUVEAU
-0
-2
-Itemsets.size 1
-freqList.size 1
-current: 2freqList.size 1
-current 2  i  0  freqList[0] = 2
-2
-on sort de la boucle
-taille itemset apres coreI1 freqList.size() << 1
-###########################APPEL ITERATEUR = 1
-BlockOfItem 0
-LcmIter original transactionList : 0 1 
-Test ppc : item 1
-CONTENU DE LEVEL2ITEMID FIN LCMITER
-001
-0012
-CONTENU DE LEVEL2TIMEID FIN LCMITER
-012
-0123
-A la fin de LCMITER occ vaut - il devrait etre comme avant 
-//////////////PrintItemsets///////////
-Pour verification contenu level2Item itemsets.size() = 1
-verification du contenu de occ 
-on met dans table le conenu de occ, la taille de table est table.size()2
-all tables : 
-table 0 : 0 1 
-table 1 : 0 
-
-Taille de alltables : 2
-Taille de table 2
-table [0] 0 1 
-CONTENU DE LEVEL2ITEMID
-001
-0012
-CONTENU DE LEVEL2TIMEID
-012
-0123
-****************************************************Taille de alltables.size () 2
-x : 0 table [0] : 01
-taille itemset 2  
-level2time : 1 2 
-0 1 
-0 1 0 1 currentObjectsets : 0 1 
-correctObjectsets : 0 1 
-currentObjectsets : 0 1 
-correctObjectsets : 0 1 
-startConvoy : 
-startConvoyIndex : 
-endConvoyIndex : 
-numOverlapTimePoint end : 0
-valid : 0
-x : 1 table [1] : 0
-taille itemset 3  
-level2time : 1 2 3 
-0 1 2 
-0 0 currentObjectsets : 0 1 
-correctObjectsets : 0 1 
-currentObjectsets : 0 1 
-correctObjectsets : 0 1 
-currentObjectsets : 0 
-correctObjectsets : 0 1 
-startConvoy : 
-startConvoyIndex : 
-endConvoyIndex : 
-numOverlapTimePoint end : 0
-valid : 0
-//////////////end PrintItemsets///////////
-//////////////end LcmIter///////////
-###########################APPEL ITERATEUR = 2
-BlockOfItem 0
-LcmIter original transactionList : 0 1 
-Test ppc : item 1
-CONTENU DE LEVEL2ITEMID FIN LCMITER
-001
-0012
-CONTENU DE LEVEL2TIMEID FIN LCMITER
-012
-0123
-A la fin de LCMITER occ vaut - il devrait etre comme avant 
-//////////////end LcmIter///////////

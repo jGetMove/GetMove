@@ -1,4 +1,4 @@
-#include "../include/Config.h"
+#include "../../include/Config.h"
 #include <string>
 
     bool Config::DEBUG=true;

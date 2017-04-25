@@ -6,9 +6,9 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include "../include/Config.h"
-#include "../include/Lcm.h"
-#include "../include/Database.h"
+#include "../../include/Config.h"
+#include "../../include/Lcm.h"
+#include "../../include/Database.h"
 
 
 
