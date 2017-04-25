@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GetMove"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GetMove">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/GetMove.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 GetMove"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GetMove/fast">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/GetMove.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 GetMove/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GetMax">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/GetMax.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 GetMax"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GetMax/fast">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/GetMax.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 GetMax/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GetFullJson">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/GetFullJson.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 GetFullJson"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GetFullJson/fast">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/GetFullJson.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 GetFullJson/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Generator">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Generator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 Generator"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Generator/fast">
+				<Option output="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Generator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 Generator/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/include/Config.h">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/include/Database.h">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/include/Lcm.h">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/include/OccurenceDeriver.h">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/Lcm/Config.cpp">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/Lcm/Database.cpp">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/Lcm/Lcm.cpp">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/Lcm/OccurenceDeriver.cpp">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/Lcm/main.cpp">
+			<Option target="GetMove"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/generateJson/generateFullJson.cpp">
+			<Option target="GetFullJson"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/generator/generator.cpp">
+			<Option target="Generator"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/src/getmax/getmax.cpp">
+			<Option target="GetMax"/>
+		</Unit>
+		<Unit filename="C:/Users/stardisblue/Documents/Cours/M1_CMI/Prediction_Deplacement_PROJ/GetMove/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
